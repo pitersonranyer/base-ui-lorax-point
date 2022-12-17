@@ -1,0 +1,25 @@
+<section class="content">
+  <div class="container-fluid">
+    <div class="eventlist-country">
+
+
+      <mat-nav-list>
+        <mat-list-item *ngFor="let parcial of parciais ; let i = index ">
+          <img matListAvatar src="{{parcial.url_escudo_png}}" alt="...">
+          <p matLine>
+            <span class="nome-time">{{parcial.nome}}</span>
+            <span class="pontuacao">{{parcial.pontuacao_rodada}}</span>
+          </p>
+          <p matLine>
+            <span class="coach">{{parcial.nome_cartola}}</span>
+            <span class="entrou-em-campo">12/12</span>
+          </p>
+          <mat-divider></mat-divider>
+        </mat-list-item>
+        
+
+      </mat-nav-list>
+
+    </div>
+  </div>
+</section>

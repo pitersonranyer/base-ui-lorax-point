@@ -1,0 +1,45 @@
+<div class="container-fluid p-0">
+  <div class="row g-0">
+    <div class="col-lg-4">
+      <div class="auth-content p-4 d-flex align-items-center min-vh-100">
+        <div class="w-100">
+          <div class="row justify-content-center">
+            <div class="col-lg-9">
+              <div>
+
+                <div class="formGroup" *ngIf="authService.currentUserValue as user">
+                  <h3 class="text-center">Obrigado {{(user.displayName) ? user.displayName : 'User'}} por se registrar</h3>
+                  <p class="text-center">
+                    Enviamos um e-mail de confirmação para <strong>{{user.email}}</strong>.
+                  </p>
+                  <p class="text-center">
+                    Verifique seu e-mail e clique no link para validar seu registro.
+                  </p>
+                </div>
+
+                <!-- Calling SendVerificationMail() method using authService Api -->
+                <div class="formGroup">
+                  <button type="button" class="btn btnPrimary" (click)="authService.SendVerificationMail()">
+                    <i class="fas fa-redo-alt"></i>
+                    Reenviar email de verificação
+                  </button>
+                </div>
+
+                <div class="mt-5 text-center">
+                  <p>Deseja Entrar ? <a routerLink="/authentication/signin" class="font-weight-medium text-primary">
+                      Logar </a> </p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-8">
+      <div class="auth-bg">
+        <div class="bg-overlay"></div>
+      </div>
+    </div>
+  </div>
+</div>

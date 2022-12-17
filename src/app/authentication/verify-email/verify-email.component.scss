@@ -1,0 +1,36 @@
+.formGroup {
+  margin-bottom: 20px;
+  float: left;
+  width: 100%;
+}
+
+.btn {
+  width: 100%;
+  border: none;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 15px 0;
+  background: #4caf50;
+  color: #ffffff;
+  cursor: pointer;
+  outline: none;
+}
+
+.btn:hover {
+  opacity: 0.88;
+}
+
+.redirectToLogin {
+  padding: 15px 0 0;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 400;
+  display: block;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.redirectToLogin .redirect {
+  cursor: pointer;
+  color: #ffffff;
+  text-decoration: underline;
+}
