@@ -14,6 +14,7 @@ import {
   AngularFirestoreDocument,
 } from '@angular/fire/compat/firestore';
 import { ApiUsuarioService } from './api.usuario';
+import { ToastrService } from 'ngx-toastr';
 
 
 
@@ -32,6 +33,7 @@ export class AuthService {
     public router: Router,
     public ngZone: NgZone, // NgZone service to remove outside scope warning
     public cadastrar: ApiUsuarioService,
+    private toastrService: ToastrService
 
   ) {
     this.currentUserSubject = new BehaviorSubject<User>(
@@ -78,7 +80,8 @@ export class AuthService {
 
       })
       .catch((error) => {
-        window.alert(error.message);
+        this.toastrService.error(error.message, 'Erro Autententicação!');
+       // window.alert(error.message);
       });
   }
 

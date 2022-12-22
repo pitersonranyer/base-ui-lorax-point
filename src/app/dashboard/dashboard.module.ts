@@ -15,6 +15,7 @@ import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
 import { NgApexchartsModule } from 'ng-apexcharts';
 import { ComponentsModule } from '../shared/components/components.module';
 import { MatListModule } from '@angular/material/list';
+import {MatCardModule} from '@angular/material/card';
 
 @NgModule({
   declarations: [MainComponent, Dashboard2Component, Dashboard3Component],
@@ -32,7 +33,8 @@ import { MatListModule } from '@angular/material/list';
       echarts: () => import('echarts')
     }),
     GaugeModule.forRoot(),
-    ComponentsModule
+    ComponentsModule,
+    MatCardModule
   ]
 })
 export class DashboardModule {}

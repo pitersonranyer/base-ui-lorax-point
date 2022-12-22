@@ -1,5 +1,12 @@
 <section class="content">
   <div class="container-fluid">
+
+    <div class="block-header" *ngFor="let breadscrum of breadscrums">
+      <!-- breadcrumb -->
+      <app-breadcrumb [title]="breadscrum.title" [items]="breadscrum.items" [active_item]="breadscrum.active">
+      </app-breadcrumb>
+    </div>
+
     <div class="eventlist-country">
       <div class="boxFlag">
         <span class="flag flag_small flag-INT"></span>

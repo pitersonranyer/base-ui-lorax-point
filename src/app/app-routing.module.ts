@@ -30,6 +30,13 @@ const routes: Routes = [
           import('./multilevel/multilevel.module').then(
             (m) => m.MultilevelModule
           )
+      },
+      {
+        path: 'pix',
+        loadChildren: () =>
+          import('./pix/pix.module').then(
+            (m) => m.PixModule
+          )
       }
     ]
   },

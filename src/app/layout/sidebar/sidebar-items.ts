@@ -18,7 +18,7 @@ export const ROUTES: RouteInfo[] = [
     submenu: [
       {
         path: 'dashboard/main',
-        title: 'MENUITEMS.HOME.LIST.DASHBOARD1',
+        title: 'Home',
         icon: '',
         class: 'ml-menu',
         groupTitle: false,
@@ -32,14 +32,7 @@ export const ROUTES: RouteInfo[] = [
         groupTitle: false,
         submenu: []
       },
-      {
-        path: 'dashboard/dashboard3',
-        title: 'MENUITEMS.HOME.LIST.DASHBOARD3',
-        icon: '',
-        class: 'ml-menu',
-        groupTitle: false,
-        submenu: []
-      }
+      
     ]
   },
   {
@@ -50,53 +43,14 @@ export const ROUTES: RouteInfo[] = [
     groupTitle: false,
     submenu: [
       {
-        path: '/authentication/signin',
-        title: 'Sign In',
+        path: 'dashboard/dashboard3',
+        title: 'Ligas',
         icon: '',
         class: 'ml-menu',
         groupTitle: false,
         submenu: []
       },
-      {
-        path: '/authentication/signup',
-        title: 'Sign Up',
-        icon: '',
-        class: 'ml-menu',
-        groupTitle: false,
-        submenu: []
-      },
-      {
-        path: '/authentication/forgot-password',
-        title: 'Forgot Password',
-        icon: '',
-        class: 'ml-menu',
-        groupTitle: false,
-        submenu: []
-      },
-      {
-        path: '/authentication/locked',
-        title: 'Locked',
-        icon: '',
-        class: 'ml-menu',
-        groupTitle: false,
-        submenu: []
-      },
-      {
-        path: '/authentication/page404',
-        title: '404 - Not Found',
-        icon: '',
-        class: 'ml-menu',
-        groupTitle: false,
-        submenu: []
-      },
-      {
-        path: '/authentication/page500',
-        title: '500 - Server Error',
-        icon: '',
-        class: 'ml-menu',
-        groupTitle: false,
-        submenu: []
-      }
+      
     ]
   },
 
@@ -108,8 +62,8 @@ export const ROUTES: RouteInfo[] = [
     groupTitle: false,
     submenu: [
       {
-        path: '/multilevel/first1',
-        title: 'First',
+        path: '/pix/pix',
+        title: 'Gerenciar',
         icon: '',
         class: 'ml-menu',
         groupTitle: false,

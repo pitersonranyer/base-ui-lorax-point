@@ -38,6 +38,7 @@ import { environment } from 'src/environments/environment';
 import { UtilService } from './core/service/util.service';
 import { AuthService } from './core/service/auth.service';
 import { ApiUsuarioService } from './core/service/api.usuario';
+import { ToastrModule } from 'ngx-toastr';
 
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
@@ -74,6 +75,7 @@ export function createTranslateLoader(http: HttpClient): any {
         deps: [HttpClient]
       }
     }),
+    
     CoreModule,
     SharedModule,
     AngularFireModule.initializeApp(environment.firebase),
@@ -81,6 +83,11 @@ export function createTranslateLoader(http: HttpClient): any {
     AngularFirestoreModule,
     AngularFireStorageModule,
     AngularFireDatabaseModule,
+    ToastrModule.forRoot({
+      closeButton: true,
+      timeOut: 15000, // 15 seconds
+      progressBar: true,
+    })
   ],
   providers: [
     { provide: LocationStrategy, useClass: HashLocationStrategy },

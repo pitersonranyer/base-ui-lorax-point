@@ -16,6 +16,14 @@ export class Dashboard2Component implements OnInit {
   foraChecked = [];
   numeroOcrs = 10;
   
+  breadscrums = [
+    {
+      title: 'Dashboad',
+      items: ['Home'],
+      active: 'Dashboard'
+    }
+  ];
+  
   palpiteUsuario = [
     {
       "casaVence": false,
