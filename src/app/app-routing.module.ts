@@ -37,6 +37,13 @@ const routes: Routes = [
           import('./pix/pix.module').then(
             (m) => m.PixModule
           )
+      },
+      {
+        path: 'gerencia-bolao',
+        loadChildren: () =>
+          import('./bolao/bolao.module').then(
+            (m) => m.BolaoModule
+          )
       }
     ]
   },

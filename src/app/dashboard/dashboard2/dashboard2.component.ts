@@ -20,7 +20,7 @@ export class Dashboard2Component implements OnInit {
     {
       title: 'Dashboad',
       items: ['Home'],
-      active: 'Dashboard'
+      active: 'Bolão'
     }
   ];
   

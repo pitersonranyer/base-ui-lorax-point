@@ -7,56 +7,64 @@
       </app-breadcrumb>
     </div>
 
-    <div class="eventlist-country">
-      <div class="boxFlag">
-        <span class="flag flag_small flag-INT"></span>
+    <mat-card fxFlex="50" class="mb15">
+
+      <div class="eventlist-country">
+        <div class="boxFlag">
+          <span class="flag flag_small flag-INT"></span>
+        </div>
+        <span class="name">Bolão</span>
+
+        <div id="divTitleOdds" class="titleMarkets titleMarkets3">
+          <span class="item">Casa</span>
+          <span id="titleEmpate" class="item">Empate</span>
+          <span class="item">Fora</span></div>
       </div>
-      <span class="name">Bolão</span>
-    
-      <div id="divTitleOdds" class="titleMarkets titleMarkets3">
-        <span class="item">Casa</span>
-        <span id="titleEmpate" class="item">Empate</span>
-        <span class="item">Fora</span></div>
-    </div>
-    
-    <div class="containerCards">
-      <div id="cardJogo" class="cardItem cardItem3" *ngFor="let partida of partidas; let i = index" >
-        <div class="dateAndHour"><span class="date">21/nov</span><span class="hour">16:00</span></div>
-        <div class="teams">
-          <div class="team">
-            <div class="logoTeam"><img src="{{partida.clube_mandante_escudos}}" width="25" height="25">
+
+      <div class="containerCards">
+
+        <div id="cardJogo" class="cardItem cardItem3" *ngFor="let partida of partidas; let i = index">
+          <div class="dateAndHour"><span class="date">21/nov</span><span class="hour">16:00</span></div>
+          <div class="teams">
+            <div class="team">
+              <div class="logoTeam"><img src="{{partida.clube_mandante_escudos}}" width="25" height="25">
+              </div>
+              <div class="nameTeam"><span>{{partida.clube_mandante_abreviacao}}</span></div>
             </div>
-            <div class="nameTeam"><span>{{partida.clube_mandante_abreviacao}}</span></div>
+            <div class="team">
+              <div class="logoTeam"><img src="{{partida.clube_visitante_escudos}}" width="25" height="25">
+              </div>
+              <div class="nameTeam"><span>{{partida.clube_visitante_abreviacao}}</span></div>
+            </div>
           </div>
-          <div class="team">
-            <div class="logoTeam"><img src="{{partida.clube_visitante_escudos}}" width="25" height="25">
+
+          <div class="outcomesMain">
+            <div class="boxOdds boxOdds3">
+              <a (click)="casaVence(i)" id="1639887647" class="odd" href="javascript:void(0)">
+                <i *ngIf="casaChecked[i]" class="fa fa-check" aria-hidden="true" style='color:greenyellow'></i>
+                <i *ngIf="!casaChecked[i]" class="fa fa-cart-plus" aria-hidden="true"></i>
+              </a>
+              <a (click)="empateJogo(i)" id="1639887648" class="odd" href="javascript:void(0)">
+                <i *ngIf="empateChecked[i]" class="fa fa-check" aria-hidden="true" style='color:greenyellow'></i>
+                <i *ngIf="!empateChecked[i]" class="fa fa-cart-plus" aria-hidden="true"></i>
+              </a>
+              <a (click)="foraVence(i)" id="1639887649" class="odd" href="javascript:void(0)">
+                <i *ngIf="foraChecked[i]" class="fa fa-check" aria-hidden="true" style='color:greenyellow'></i>
+                <i *ngIf="!foraChecked[i]" class="fa fa-cart-plus" aria-hidden="true"></i>
+              </a>
             </div>
-            <div class="nameTeam"><span>{{partida.clube_visitante_abreviacao}}</span></div>
           </div>
         </div>
-        <div class="outcomesMain">
-          <div class="boxOdds boxOdds3">
-            <a (click)="casaVence(i)" id="1639887647" class="odd" href="javascript:void(0)">
-              <i *ngIf="casaChecked[i]" class="fa fa-check" aria-hidden="true" style='color:greenyellow'></i>
-              <i *ngIf="!casaChecked[i]" class="fa fa-cart-plus" aria-hidden="true"></i>
-            </a>
-            <a (click)="empateJogo(i)" id="1639887648" class="odd" href="javascript:void(0)">
-              <i *ngIf="empateChecked[i]" class="fa fa-check" aria-hidden="true" style='color:greenyellow'></i>
-              <i *ngIf="!empateChecked[i]" class="fa fa-cart-plus" aria-hidden="true"></i>
-            </a>
-            <a (click)="foraVence(i)" id="1639887649" class="odd" href="javascript:void(0)">
-              <i *ngIf="foraChecked[i]" class="fa fa-check" aria-hidden="true" style='color:greenyellow'></i>
-              <i *ngIf="!foraChecked[i]" class="fa fa-cart-plus" aria-hidden="true"></i>
-            </a>
-          </div>
+
+        <div class="container-login100-form-btn">
+          <button mat-flat-button color="primary" class="login100-form-btn" (click)="confirma()">
+            CONFIRMA
+          </button>
         </div>
+
       </div>
-      <div class="container-login100-form-btn">
-        <button mat-flat-button color="primary" class="login100-form-btn" (click)="confirma()" >
-          CONFIRMA
-        </button>
-      </div>
-       
-    </div>
+
+    </mat-card>
   </div>
+
 </section>

@@ -3,14 +3,6 @@ import { RouteInfo } from './sidebar.metadata';
 export const ROUTES: RouteInfo[] = [
   {
     path: '',
-    title: 'MENUITEMS.MAIN.TEXT',
-    icon: '',
-    class: '',
-    groupTitle: true,
-    submenu: []
-  },
-  {
-    path: '',
     title: 'MENUITEMS.HOME.TEXT',
     icon: 'life-buoy',
     class: 'menu-toggle',
