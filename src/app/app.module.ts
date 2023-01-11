@@ -39,6 +39,7 @@ import { UtilService } from './core/service/util.service';
 import { AuthService } from './core/service/auth.service';
 import { ApiUsuarioService } from './core/service/api.usuario';
 import { ToastrModule } from 'ngx-toastr';
+import { ApiBolaoService } from './core/service/api.bolao';
 
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
@@ -98,7 +99,8 @@ export function createTranslateLoader(http: HttpClient): any {
     WINDOW_PROVIDERS,
     AuthService,
     UtilService,
-    ApiUsuarioService
+    ApiUsuarioService,
+    ApiBolaoService
   ],
   bootstrap: [AppComponent]
 })

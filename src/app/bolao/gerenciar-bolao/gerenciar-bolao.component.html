@@ -18,7 +18,7 @@
         </mat-form-field>
 
         <mat-form-field class="example-full-width">
-          <mat-select name="countryVaraible" [(value)]="selecionado" [disabled]="listLib">
+          <mat-select name="countryVaraible" [(value)]="situacaoBolaoSel" [disabled]="listLib">
             <mat-option *ngFor="let situacao of listSituacao" [value]="situacao.full">
               {{situacao.full}}
             </mat-option>
@@ -27,34 +27,90 @@
       </mat-card-content>
 
       <mat-card-actions align="end">
-        <button mat-raised-button color="accent" (click)="continuarCadastro()">Próximo</button>
+        <button mat-raised-button color="accent" (click)="continuarCadastro()" [disabled]="listLib">Próximo</button>
       </mat-card-actions>
 
     </mat-card>
 
-    <mat-card fxFlex.gt-xs="40" class="mb15">
+    <mat-card fxFlex.gt-xs="40" class="mb15" *ngIf="listLib">
 
       <mat-card-header>
-        <mat-card-title>Jogos</mat-card-title>
+        <mat-card-title>Pesquisar jogos por data</mat-card-title>
       </mat-card-header>
 
-      <div class="example-container">
+      <mat-form-field>
+        <mat-label>Entre com a data Inicio e Fim</mat-label>
+        <mat-date-range-input [formGroup]="range" [rangePicker]="picker">
+          <input matStartDate matInput formControlName="start" placeholder="Data Início">
+          <input matEndDate matInput formControlName="end" placeholder="Data Final">
+        </mat-date-range-input>
+        <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-date-range-picker #picker></mat-date-range-picker>
+      </mat-form-field>
 
-        <mat-form-field appearance="fill">
-          <mat-label>Select me</mat-label>
-          <mat-select>
-            <mat-option value="option">Option</mat-option>
-          </mat-select>
-        </mat-form-field>
-      
-        <mat-form-field appearance="fill">
-          <mat-label>Select me</mat-label>
-          <mat-select>
-            <mat-option value="option">Option</mat-option>
-          </mat-select>
-        </mat-form-field>
+
+      <div class="inline">
+
+        <button mat-raised-button color="accent" (click)="pesquisarJogosPordata()">Pesquisar</button>
+        <button mat-raised-button color="accent" (click)="SalvarJogoBolao()">Teste Salvar</button>
+
       </div>
-      
+
+    </mat-card>
+
+    <mat-card fxFlex.gt-xs="40" class="mb15" *ngIf="listLib">
+
+      <mat-accordion>
+        <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false"
+          *ngFor="let competicao of competicoes">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              <img matListAvatar class="width30" src="{{competicao.emblem}}">
+              <span class="nome-time"> {{competicao.name}} </span>
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+
+
+          <div class="containerCards">
+            <div id="cardJogo" class="cardItem cardItem3" *ngFor="let team of competicao.partidas; let i = index">
+              <div class="dateAndHour"><span class="date">{{team.utcDate.substring(0,5)}}</span><span
+                  class="hour">{{team.utcDate.substring(11,16)}}</span></div>
+              <div class="teams">
+                <div class="team">
+                  <div class="logoTeam"><img src="{{team.crest_homeTeam}}" width="25" height="25">
+                  </div>
+                  <div class="nameTeam"><span>{{team.shortName_homeTeam}}</span></div>
+                </div>
+                <div class="team">
+                  <div class="logoTeam"><img src="{{team.crest_awayTeam}}" width="25" height="25">
+                  </div>
+                  <div class="nameTeam"><span>{{team.shortName_awayTeam}}</span></div>
+                </div>
+              </div>
+
+               
+              <!-- <div class="icon">
+                <mat-icon *ngIf="!foraChecked[i]" >add_circle_outline</mat-icon>
+                <mat-icon *ngIf="foraChecked[i]" aria-hidden="true" style='color:greenyellow' >thumb-up</mat-icon>
+              </div> -->
+
+              <div class="icon">
+                <a (click)="addJogoBolao(i, team.id_partida)" id="1639887649" class="odd" href="javascript:void(0)">
+                  <i *ngIf="foraChecked[i]" class="fa fa-check" aria-hidden="true" style='color:greenyellow'></i>
+                  <i *ngIf="!foraChecked[i]" class="fa fa-plus-circle" aria-hidden="true"></i>
+                </a>
+              </div>
+
+            </div>
+
+          </div>
+
+        </mat-expansion-panel>
+      </mat-accordion>
+
+
+
 
 
     </mat-card>
@@ -63,6 +119,7 @@
     <button mat-icon-button *ngIf="listLib" (click)="limpar()">
       <i class="fa fa-arrow-left" style="font-size:48px;color:rgb(0, 81, 255)"></i>
     </button>
+
 
 
   </div>

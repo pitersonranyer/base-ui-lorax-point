@@ -185,7 +185,6 @@ export class AuthService {
         this.usuario.uid = result.user.uid;
         this.usuario.email = result.user.email;
         this.usuario.nome = result.user.displayName;
-        console.log('cadastrarUserPoint');
         this.cadastrar.cadastrarUserPoint(this.usuario).subscribe(response => console.log(response));
       })
 

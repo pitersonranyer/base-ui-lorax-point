@@ -23,22 +23,23 @@
 
       <div class="containerCards">
 
-        <div id="cardJogo" class="cardItem cardItem3" *ngFor="let partida of partidas; let i = index">
-          <div class="dateAndHour"><span class="date">21/nov</span><span class="hour">16:00</span></div>
+        <div id="cardJogo" class="cardItem cardItem3" *ngFor="let team of partidas; let i = index">
+          <div class="dateAndHour"><span class="date">{{team.utcDate.substring(0,5)}}</span><span
+              class="hour">{{team.utcDate.substring(11,16)}}</span></div>
           <div class="teams">
             <div class="team">
-              <div class="logoTeam"><img src="{{partida.clube_mandante_escudos}}" width="25" height="25">
+              <div class="logoTeam"><img src="{{team.crest_homeTeam}}" width="25" height="25">
               </div>
-              <div class="nameTeam"><span>{{partida.clube_mandante_abreviacao}}</span></div>
+              <div class="nameTeam"><span>{{team.shortName_homeTeam}}</span></div>
             </div>
             <div class="team">
-              <div class="logoTeam"><img src="{{partida.clube_visitante_escudos}}" width="25" height="25">
+              <div class="logoTeam"><img src="{{team.crest_awayTeam}}" width="25" height="25">
               </div>
-              <div class="nameTeam"><span>{{partida.clube_visitante_abreviacao}}</span></div>
+              <div class="nameTeam"><span>{{team.shortName_awayTeam}}</span></div>
             </div>
           </div>
 
-          <div class="outcomesMain">
+          <div class="outcomesMain"> 
             <div class="boxOdds boxOdds3">
               <a (click)="casaVence(i)" id="1639887647" class="odd" href="javascript:void(0)">
                 <i *ngIf="casaChecked[i]" class="fa fa-check" aria-hidden="true" style='color:greenyellow'></i>
