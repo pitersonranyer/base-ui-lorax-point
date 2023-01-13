@@ -42,5 +42,10 @@ import { Observable } from 'rxjs';
         return this.http.post(url, bilhete);
       }
 
+      listTotalBilheteBolao(situacao_bolao: string): Observable<any[]> {
+        const url = this.utilService.getUrlBackend() + `/footballDataBilhete/listTotalBilheteBolao/${situacao_bolao}`;
+        return this.http.get<any[]>(url)
+      }
 
+     
   }

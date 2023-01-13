@@ -12,6 +12,7 @@ import {MatExpansionModule} from '@angular/material/expansion';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import {  MatIconModule } from '@angular/material/icon';
+import { ListBolaoComponent } from './listBolao/list-bolao.component';
 
 
 @NgModule({
@@ -32,7 +33,7 @@ import {  MatIconModule } from '@angular/material/icon';
   ],
 
   
-  declarations: [GerenciarBolaoComponent],
+  declarations: [GerenciarBolaoComponent , ListBolaoComponent],
   
   
 })
