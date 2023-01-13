@@ -98,10 +98,8 @@ this.cadastrarBolaoService.cadastrarBolao(dadosBolao)
   }
 
   addJogoBolao(i: number, id_partida: number) {
-    console.log(id_partida);
     this.foraChecked[i] = true
     this.partidaAdd.push(id_partida);
-
   }
 
   limpar() {

@@ -26,7 +26,6 @@ import { Observable } from 'rxjs';
 
       cadastrarBolao(bolao: any) {
         const url = this.utilService.getUrlBackend() + `/footballDataBolao`;
-        console.log(url, bolao);
         return this.http.post(url, bolao);
       }
 
@@ -36,6 +35,12 @@ import { Observable } from 'rxjs';
         return this.http.get<any[]>(url)
       }
 
+
+
+      gerarBilheteBolao(bilhete: any) {
+        const url = this.utilService.getUrlBackend() + `/footballDataBilhete`;
+        return this.http.post(url, bilhete);
+      }
 
 
   }
